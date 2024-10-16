@@ -1,4 +1,4 @@
-from dags.scripts.config import ONEDRIVE
+from dags.config import ONEDRIVE
 from scripts.extract_onedrive_data import download_file_from_onedrive
 from scripts.transform_csv_data import transform_csv_data
 from scripts.transform_json_data import transform_json_data
