@@ -1,5 +1,3 @@
-import os
-
 # Snowflake connection details
 SNOWFLAKE_CONN = {
     'user': 'njungmarker',
@@ -10,9 +8,9 @@ SNOWFLAKE_CONN = {
     'schema': 'PUBLIC'
 }
 
-# OneDrive API credentials (update with actual values from Microsoft Entra ID)
+# OneDrive API credentials
 ONEDRIVE = {
-    'client_id': 'your_actual_client_id',
-    'client_secret': 'your_actual_client_secret',
-    'tenant_id': 'your_actual_tenant_id'
+    'client_id': '3b981fcc-c0b6-4792-9da3-7e7482add4c8',  # Client ID
+    'client_secret': 'y9D8Q~Ft6-STH5DZVlRsWWF94gx-.MJ5XvoaFdeS',  # Client Secret
+    'tenant_id': '377264be-5480-4381-b056-500094b3c3b6'  # Tenant ID
 }
