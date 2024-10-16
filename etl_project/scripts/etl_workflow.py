@@ -4,10 +4,10 @@ from scripts.transform_json_data import transform_json_data
 from scripts.load_to_snowflake import load_to_snowflake
 
 def etl_workflow(file_name):
-    # Step 1: Extract from OneDrive
+    """ETL workflow to download, transform, and load data."""
     file_path, file_extension = download_file_from_onedrive(file_name)
 
-    # Step 2: Transform the data based on file type
+    # Choose the appropriate transformation function based on the file type
     if file_extension == 'csv':
         transformed_file_path = transform_csv_data(file_path)
     elif file_extension == 'json':
@@ -15,12 +15,8 @@ def etl_workflow(file_name):
     else:
         raise ValueError(f"Unsupported file type: {file_extension}")
 
-    # Step 3: Load into Snowflake
+    # Load the transformed data into Snowflake
     load_to_snowflake(transformed_file_path)
 
 if __name__ == "__main__":
-    # Example of running with a CSV file
-    etl_workflow('donations.csv')
-    
-    # Example of running with a JSON file
-    # etl_workflow('donations.json')
+    etl_workflow('donations.csv')  # Replace with 'donations.json' for JSON

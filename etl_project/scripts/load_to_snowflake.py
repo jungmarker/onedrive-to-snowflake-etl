@@ -3,11 +3,7 @@ from config import SNOWFLAKE_CONN
 import os
 
 def load_to_snowflake(file_path):
-    """
-    Load the transformed data from CSV into Snowflake using the PUT command to stage the file, 
-    and then merge the data into the final table using the SQL `MERGE` statement.
-    """
-    # Step 1: Connect to Snowflake
+    """Load the transformed data from CSV into Snowflake."""
     conn = snowflake.connector.connect(
         user=SNOWFLAKE_CONN['user'],
         password=SNOWFLAKE_CONN['password'],
@@ -45,5 +41,4 @@ def load_to_snowflake(file_path):
         conn.close()
 
 if __name__ == "__main__":
-    # Example usage (you would replace this with your actual transformed file path)
     load_to_snowflake('/tmp/transformed_data.csv')

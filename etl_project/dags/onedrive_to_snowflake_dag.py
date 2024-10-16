@@ -13,7 +13,12 @@ default_args = {
     'retry_delay': timedelta(minutes=5),
 }
 
-dag = DAG('onedrive_to_snowflake_etl', default_args=default_args, schedule_interval='@daily')
+dag = DAG(
+    'onedrive_to_snowflake_etl',
+    default_args=default_args,
+    description='ETL pipeline to extract CSV and JSON from OneDrive and load into Snowflake',
+    schedule_interval='@daily',
+)
 
 etl_csv_task = PythonOperator(
     task_id='run_etl_csv',
@@ -28,3 +33,5 @@ etl_json_task = PythonOperator(
     op_args=['donations.json'],
     dag=dag
 )
+
+etl_csv_task >> etl_json_task
