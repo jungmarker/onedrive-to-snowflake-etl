@@ -4,7 +4,7 @@ from scripts.transform_json_data import transform_json_data
 from scripts.load_to_snowflake import load_to_snowflake
 
 def etl_workflow(file_name):
-    """ETL workflow to download, transform, and load data."""
+    """ETL workflow"""
     file_path, file_extension = download_file_from_onedrive(file_name)
 
     # Choose the appropriate transformation function based on the file type
