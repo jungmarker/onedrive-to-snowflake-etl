@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from dags.config import ONEDRIVE
+from config import ONEDRIVE
 
 
 # Local import

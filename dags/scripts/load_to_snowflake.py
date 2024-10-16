@@ -1,5 +1,5 @@
 import snowflake.connector
-from dags.config import SNOWFLAKE_CONN
+from config import SNOWFLAKE_CONN
 import os
 
 def load_to_snowflake(file_path):
