@@ -1,5 +1,6 @@
+from dags.config import ONEDRIVE  # Relative import within the same folder
 import requests
-from config import ONEDRIVE
+
 
 def get_onedrive_access_token():
     """Obtain the OAuth 2.0 access token for OneDrive."""

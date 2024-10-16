@@ -1,3 +1,4 @@
+version: '3'
 services:
   postgres:
     image: postgres:13
@@ -15,23 +16,23 @@ services:
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     volumes:
-      - ./dags:/opt/airflow/dags
-      - ./dags/scripts:/opt/airflow/dags/scripts
+      - ./dags:/opt/airflow/dags  # Mounting DAG folder
+      - ./dags/scripts:/opt/airflow/dags/scripts  # Mounting scripts
     ports:
       - "8080:8080"
     depends_on:
       - postgres
     command: webserver
 
-  scheduler:
+  airflow_scheduler:
     image: apache/airflow:2.3.0
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     volumes:
-      - ./dags:/opt/airflow/dags
-      - ./scripts:/opt/airflow/scripts   # <-- Mounting scripts
+      - ./dags:/opt/airflow/dags  # Mounting DAG folder
+      - ./dags/scripts:/opt/airflow/dags/scripts  # Mounting scripts
     depends_on:
       - postgres
     command: scheduler

@@ -1,7 +1,13 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from scripts.etl_workflow import etl_workflow
+from scripts.config import ONEDRIVE
+
+
+# Local import
+from dags.scripts.etl_workflow import etl_workflow
+
+
 
 default_args = {
     'owner': 'airflow',
@@ -22,7 +28,7 @@ dag = DAG(
 
 etl_csv_task = PythonOperator(
     task_id='run_etl_csv',
-    python_callable=etl_workflow,
+    python_callable=etl_workflow,  # <-- Callable function
     op_args=['donations.csv'],
     dag=dag
 )
