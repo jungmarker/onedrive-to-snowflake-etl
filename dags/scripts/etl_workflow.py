@@ -11,7 +11,7 @@ def etl_workflow(file_name):
     """ETL workflow"""
     file_path, file_extension = download_file_from_onedrive(file_name)
 
-    # Choose the appropriate transformation function based on the file type
+    # Choose the transformation function based on the file type
     if file_extension == 'csv':
         transformed_file_path = transform_csv_data(file_path)
     elif file_extension == 'json':

@@ -2,6 +2,7 @@ import snowflake.connector
 from config import SNOWFLAKE_CONN
 import os
 
+# Step 1: Establish connection to Snowflake
 def load_to_snowflake(file_path):
     """Load the transformed data from CSV into Snowflake."""
     conn = snowflake.connector.connect(
