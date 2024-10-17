@@ -18,7 +18,7 @@ This is an example project an ETL pipeline that automates the extraction of .csv
 3. Run the ETL pipeline manually or let Airflow run the DAG.
 
 # SQL Files
--**create_database_and_schema.sql**: Creates Snowflake database and schema.
--**create_tables.sql**: Defines tables such as donations and constituents.
--**manual_data_loading.sql**: Inserts sample data into Snowflake tables.
--**select_queries.sql**: Provides examples of queries for data analysis, including joins, groupings, and date ranges.
+- **create_database_and_schema.sql**: Creates Snowflake database and schema.
+- **create_tables.sql**: Defines tables such as donations and constituents.
+- **manual_data_loading.sql**: Inserts sample data into Snowflake tables.
+- **select_queries.sql**: Provides examples of queries for data analysis, including joins, groupings, and date ranges.
