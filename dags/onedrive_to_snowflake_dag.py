@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-from config import ONEDRIVE
+from etl_project.config import ONEDRIVE
 from scripts.etl_workflow import etl_workflow
 
 
